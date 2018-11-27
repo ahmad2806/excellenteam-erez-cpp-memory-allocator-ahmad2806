@@ -5,6 +5,7 @@
 #ifndef MEMORYALLOCATOR_MEMORYALLOCATOR_H
 #define MEMORYALLOCATOR_MEMORYALLOCATOR_H
 
+#define ALIGNMENT 8
 
 #include <stdint.h>
 #include <stdlib.h>
