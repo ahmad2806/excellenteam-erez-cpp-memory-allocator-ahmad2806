@@ -10,7 +10,7 @@ MemoryAllocator *MemoryAllocator_init(void *memoryPool, size_t size) {//change s
     MemoryAllocator *memAllocator;
     memAllocator = (MemoryAllocator *) malloc(sizeof(MemoryAllocator));
 
-    memAllocator->size = size - ((size_t)&(*memAllocator) % ALIGNMENT);
+    memAllocator->size = size - (size % ALIGNMENT);
     //if the os already created that chunk
     // !! alignment is already been taken in calculation
 
@@ -27,7 +27,8 @@ void *MemoryAllocator_release(MemoryAllocator *allocator) {
 }
 
 void *MemoryAllocator_allocate(MemoryAllocator *allocator, size_t size) {
-    size = (size % ALIGNMENT) + size;
+
+    size = (ALIGNMENT - (size % ALIGNMENT)) + size;
     size_t current_size = 0;
     size_t *p_current_block = &current_size;
     while (current_size <= allocator->size) {
@@ -52,6 +53,8 @@ void MemoryAllocator_free(MemoryAllocator *allocator, void *ptr) {
     p_kuku = (size_t *) ptr + *p_fofo;
     if ((*p_kuku) % 2 == 1)
         *p_fofo += *p_kuku - 1;
+    else
+        *p_fofo += 1;
     //allocator usage batata
 }
 
