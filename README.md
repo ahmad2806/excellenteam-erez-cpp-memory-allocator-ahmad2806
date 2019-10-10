@@ -1,4 +1,4 @@
-## excellenteam-erez-cpp-memory-allocator-ahmad2806
+
 ## Memory allocation service
 
 The goal of this exercise is to create memory allocator in C which is using a big chunk of memory pool which is set at initialization.
