@@ -6,6 +6,7 @@
 #define MEMORYALLOCATOR_MEMORYALLOCATOR_H
 
 #define ALIGNMENT 8
+#define ISFREE 1
 
 #include <stdint.h>
 #include <stdlib.h>
